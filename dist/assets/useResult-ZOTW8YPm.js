@@ -1,1 +1,0 @@
-import{a as r,u as s,q as a}from"./index-C5L2fYm2.js";async function u(){return(await r.get("/api/result")).data}function i(e=!1){return s({queryKey:a.result,queryFn:u,retry:0,staleTime:1e3*15,refetchInterval:t=>e&&(t.state.status==="error"||!t.state.data)?2e4:!1})}export{i as u};

@@ -19,6 +19,8 @@ const SEEN_MATCH_ID_KEY = 'football7_seen_match_id';
 export const ResultPage: React.FC = () => {
   const { data: result, isLoading, isError, refetch } = useResult(true);
   const shareCardRef = useRef<HTMLDivElement>(null);
+  const teamARef = useRef<HTMLDivElement>(null);
+  const teamBRef = useRef<HTMLDivElement>(null);
   const [shouldAnimate, setShouldAnimate] = useState(false);
 
   useEffect(() => {
@@ -113,7 +115,12 @@ export const ResultPage: React.FC = () => {
             <span>Xem lại hiệu ứng</span>
           </Button>
 
-          <ShareButton cardRef={shareCardRef} matchId={matchId} />
+          <ShareButton 
+            cardRef={shareCardRef} 
+            teamARef={teamARef}
+            teamBRef={teamBRef}
+            matchId={matchId} 
+          />
         </div>
       </div>
 
@@ -149,7 +156,12 @@ export const ResultPage: React.FC = () => {
       </div>
 
       {/* Hidden Off-Screen Card for High-Res PNG Capture */}
-      <ShareCard result={result} cardRef={shareCardRef} />
+      <ShareCard 
+        result={result} 
+        cardRef={shareCardRef} 
+        teamARef={teamARef}
+        teamBRef={teamBRef}
+      />
     </div>
   );
 };
